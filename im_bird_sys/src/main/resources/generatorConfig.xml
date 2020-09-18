@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="D:\repository\mysql\mysql-connector-java\5.1.49\mysql-connector-java-5.1.49.jar" />
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!--不生成注释-->
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql:///im_bird?useSSL=false"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!--实体类-->
+        <javaModelGenerator targetPackage="org.wdzl.pojo" targetProject="src\main\java" />
+
+        <!--xxxMapper.xml-->
+        <sqlMapGenerator targetPackage="org.wdzl.mapper"  targetProject="src\main\resources" />
+
+        <!--mapper接口位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="org.wdzl.mapper"  targetProject="src\main\java" />
+
+        <table tableName="chat_msg" domainObjectName="ChatMsg"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" ></table>
+        <table tableName="friends_request" domainObjectName="FriendsRequest"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" ></table>
+        <table tableName="my_friends" domainObjectName="MyFriends"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" ></table>
+        <table tableName="users" domainObjectName="User"  enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" ></table>
+    </context>
+</generatorConfiguration>
